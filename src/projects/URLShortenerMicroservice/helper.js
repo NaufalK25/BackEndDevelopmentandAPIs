@@ -7,7 +7,7 @@ const createFile = (file) => {
 }
 
 const insertUrl = (file, inputUrl) => {
-    const urls = JSON.parse(fs.readFileSync(file).toString());
+    const urls = JSON.parse(fs.readFileSync(file));
 
     if (checkUrl(file, inputUrl)) {
         const foundUrl = findUrl(file, inputUrl);
@@ -30,17 +30,17 @@ const checkUrl = (file, inputUrl) => {
 }
 
 const findUrl = (file, inputUrl) => {
-    const urls = JSON.parse(fs.readFileSync(file).toString());
+    const urls = JSON.parse(fs.readFileSync(file));
     return urls.find(url => url.original_url === inputUrl);
 }
 
 const findByShortUrl = (file, shortUrl) => {
-    const urls = JSON.parse(fs.readFileSync(file).toString());
+    const urls = JSON.parse(fs.readFileSync(file));
     return urls.find(url => url.short_url === +shortUrl);
 }
 
 const getUrlLength = (file) => {
-    const urls = JSON.parse(fs.readFileSync(file).toString());
+    const urls = JSON.parse(fs.readFileSync(file));
     return urls.length;
 }
 
