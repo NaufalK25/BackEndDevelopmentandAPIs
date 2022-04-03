@@ -8,8 +8,8 @@
     },
     "dependencies": {
         "express": "^5.0.0-alpha.2",
-        "cors": "^2.8.1",
-        "dotenv": "^8.2.0"
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.0"
     },
     "repository": {
         "type": "git",
