@@ -1,12 +1,10 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const validUrl = require('valid-url');
 const { createFile, insertUrl, findByShortUrl } = require('./helper');
+require('dotenv').config();
 
 const app = express();
-
-// Basic Configuration
 const port = process.env.PORT || 3000;
 
 app.use(cors());
@@ -16,12 +14,11 @@ app.use('/public', express.static(`${process.cwd()}/public`));
 
 createFile('urls.json');
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.sendFile(process.cwd() + '/views/index.html');
 });
 
-// Your first API endpoint
-app.get('/api/hello', function (req, res) {
+app.get('/api/hello', (req, res) => {
     res.json({ greeting: 'hello API' });
 });
 
@@ -40,6 +37,6 @@ app.post('/api/shorturl', (req, res) => {
     }
 });
 
-app.listen(port, function () {
+app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });

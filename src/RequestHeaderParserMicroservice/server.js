@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.static('public'));
@@ -23,7 +24,6 @@ app.get('/api/whoami', (req, res) => {
     });
 });
 
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Your app is listening on port ${port}`)
 });
